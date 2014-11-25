@@ -13,6 +13,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <SCRIPT src="${pageContext.servletContext.contextPath }/js/Clock.js"
 	type=text/javascript></SCRIPT>
+	<SCRIPT src="${pageContext.servletContext.contextPath }/js/greeting.js"
+	type=text/javascript></SCRIPT>
 <title>无标题文档</title>
 </head>
 
@@ -20,7 +22,7 @@
 	<div>
 		<center style="color: white; font-weight: 800; font-size: 30px;">
 			尊贵的：<span style="color: yellow; font-weight: 800;">${userSession.userRealname}</span>
-			您好！！！！ 欢迎进入蓝缘管理系统:
+			<span id="greet"></span>, 欢迎进入蓝缘管理系统:
 		</center>
 		<dir style="color: white; font-size: 20px;">
 			你的身份是:
@@ -51,5 +53,9 @@
 		</object>
 
 	</div>
+	<script type="text/javascript">
+	var greeting=greet();
+	document.getElementById("greet").innerHTML=greeting;
+	</script>
 </body>
 </html>
