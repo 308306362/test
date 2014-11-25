@@ -24,6 +24,7 @@ import com.lanyuan.entity.UserLoginList;
 import com.lanyuan.service.ResourcesService;
 import com.lanyuan.service.UserLoginListService;
 import com.lanyuan.util.Common;
+import com.lanyuan.util.Md5Tool;
 
 /**
  * 进行管理后台框架界面的类
@@ -70,12 +71,13 @@ public class BackgroundController
 			}
 			// 验证用户账号与密码是否正确
 			User users = this.userDao.querySingleUser(username);
-			if (users == null || !users.getUserPassword().equals(password)) {
+			String mpassword=Md5Tool.getMd5(password);
+			if (users == null || !users.getUserPassword().equals(mpassword)) {
 				request.setAttribute("error", "用户或密码不正确！");
 			    return "/background/framework/login";
 			}
 			Authentication authentication = myAuthenticationManager
-					.authenticate(new UsernamePasswordAuthenticationToken(username,password));
+					.authenticate(new UsernamePasswordAuthenticationToken(username,mpassword));
 			SecurityContext securityContext = SecurityContextHolder.getContext();
 			securityContext.setAuthentication(authentication);
 			HttpSession session = request.getSession(true);  
