@@ -20,5 +20,9 @@ public class Md5Tool {
 		}
 		return str;
 	}
+	
+	public static void main(String[] args) {
+		System.out.println(getMd5("1234556"));
+	}
 
 }
