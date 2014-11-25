@@ -22,7 +22,7 @@ public class Md5Tool {
 	}
 	
 	public static void main(String[] args) {
-		System.out.println(getMd5("1234556"));
+		System.out.println(getMd5("admin"));
 	}
 
 }
