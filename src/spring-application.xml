@@ -103,6 +103,7 @@
 	<context:component-scan base-package="com.lanyuan.service" />
 	<context:component-scan base-package="com.lanyuan.log" />
 	<context:component-scan base-package="com.lanyuan.security" />
+	<context:component-scan base-package="com.lanyuan.task" />
 	<!-- 隐式地向 Spring 容器注册 -->
 	<context:annotation-config />
 </beans>
