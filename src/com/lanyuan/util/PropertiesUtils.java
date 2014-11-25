@@ -62,12 +62,11 @@ public class PropertiesUtils {
 	 */
 	public static Properties getProperties(){
 		Properties prop = new Properties();
-		String savePath = PropertiesUtils.class.getResource("/config.properties").getPath();
+		//String savePath = PropertiesUtils.class.getResource("/config.properties").getPath();
 		//以下方法读取属性文件会缓存问题
-//		InputStream in = PropertiesUtils.class
-//				.getResourceAsStream("/config.properties");
 		try {
-			InputStream in =new BufferedInputStream(new FileInputStream(savePath));  
+			InputStream in = PropertiesUtils.class
+					.getResourceAsStream("/config.properties");
 			prop.load(in);
 		} catch (Exception e) {
 			return null;
