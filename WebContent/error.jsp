@@ -10,7 +10,7 @@
 <body>
 <h1>出错了</h1>
 <%
-Exception e = (Exception)request.getAttribute("exception") ;
+Exception e = (Exception)request.getAttribute("exception");
 out.print(e.getMessage());
 %>
 </body>
