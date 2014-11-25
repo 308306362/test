@@ -47,7 +47,7 @@ public class SpringTaskController {
 	 * 
 	 * @throws Exception
 	 */
-	// @Scheduled(cron = "0 0 9  * * ? ")
+	@Scheduled(cron = "0 0 9  * * ? ")
 	public void action() throws Exception {
 		Properties prop = PropertiesUtils.getProperties();
 		if (null != prop) {
@@ -74,7 +74,7 @@ public class SpringTaskController {
 	 * 
 	 * @throws Exception
 	 */
-	@Scheduled(cron = "1 * *  * * ? ")
+	@Scheduled(cron="0/5 * *  * * ? ")
 	public void task() throws Exception {
 		ServerStatus status = Common.getServerStatus();
 		String cpuUsage = status.getCpuUsage();// CPU使用率
@@ -118,7 +118,8 @@ public class SpringTaskController {
 				+ "</td><td>使用率超出  " + jvm + "%,,发送邮箱提示 </td></tr>" + "</tbody>" + "</table>";
 		if (!Common.isEmpty(cpubool) || !Common.isEmpty(jvmbool) || !Common.isEmpty(rambool)) {
 			try {
-				EmailUtils.sendMail(prop.getProperty("fromEmail"), email, prop.getProperty("emailName"), prop.getProperty("emailPassword"), title, centent);
+				//EmailUtils.sendMail(prop.getProperty("fromEmail"), email, prop.getProperty("emailName"), prop.getProperty("emailPassword"), title, centent);
+				EmailUtils.sendMail(prop.getProperty("fromEmail"), prop.getProperty("toEmail"), prop.getProperty("emailName"), prop.getProperty("emailPassword"), title,centent);
 				// 保存预警信息
 				ServerInfo vo = new ServerInfo();
 				vo.setCpuUsage(cpuUsage);
