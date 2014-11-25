@@ -18,6 +18,7 @@ import com.lanyuan.entity.User;
 import com.lanyuan.entity.UserLoginList;
 import com.lanyuan.service.UserLoginListService;
 import com.lanyuan.util.Common;
+import com.lanyuan.util.Md5Tool;
 
 /**
  * 这个类主要是用户登录验证
@@ -88,7 +89,8 @@ public class MyAuthenticationFilter extends
 
 		// 验证用户账号与密码是否正确
 		User users = this.userDao.querySingleUser(username);
-		if (users == null || !users.getUserPassword().equals(password)) {
+		String mpassword=Md5Tool.getMd5(password);
+		if (users == null || !users.getUserPassword().equals(mpassword)) {
 			BadCredentialsException exception = new BadCredentialsException(
 					"用户名或密码不匹配！");// 在界面输出自定义的信息！！
 			// request.setAttribute(WebAttributes.AUTHENTICATION_EXCEPTION,
