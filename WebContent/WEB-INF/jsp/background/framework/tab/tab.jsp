@@ -13,7 +13,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <SCRIPT src="${pageContext.servletContext.contextPath }/js/Clock.js"
 	type=text/javascript></SCRIPT>
-	<SCRIPT src="${pageContext.servletContext.contextPath }/js/greeting.js"
+<SCRIPT src="${pageContext.servletContext.contextPath }/js/greeting.js"
 	type=text/javascript></SCRIPT>
 <title>无标题文档</title>
 </head>
@@ -21,10 +21,10 @@
 <body bgcolor="#353c44">
 	<div>
 		<center style="color: white; font-weight: 800; font-size: 30px;">
-			尊贵的：<span style="color: yellow; font-weight: 800;">${userSession.userRealname}</span>
-			<span id="greet"></span>, 欢迎进入蓝缘管理系统:
+			尊贵的：<span style="color: yellow; font-weight: 400;">${userSession.userRealname}</span>
+			<span id="greet"></span>, 欢迎进入蓝缘管理系统
 		</center>
-		<dir style="color: white; font-size: 20px;">
+		<dir style="color: white; font-size: 20px;margin-left: auto;margin-right: auto;text-align:center">
 			你的身份是:
 			<span style="color: yellow;"> <c:choose>
 					<c:when test="${userSession.level eq '1'}">超级管理员</c:when>
@@ -35,7 +35,7 @@
 					style="color: yellow;"></SPAN></b> <SCRIPT type=text/javascript>
 						var clock = new Clock();
 						clock.display(document.getElementById("clock"));
-					</SCRIPT></span>
+			</SCRIPT></span>
 		</dir>
 	</div>
 	<div style="padding: 8px; background-color: gray;" align="center">
@@ -53,6 +53,7 @@
 		</object>
 
 	</div>
+
 	<script type="text/javascript">
 	var greeting=greet();
 	document.getElementById("greet").innerHTML=greeting;
