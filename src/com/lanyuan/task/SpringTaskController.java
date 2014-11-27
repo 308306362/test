@@ -74,7 +74,7 @@ public class SpringTaskController {
 	 * 
 	 * @throws Exception
 	 */
-	@Scheduled(cron="0/5 * *  * * ? ")
+	@Scheduled(cron="0 5 * * * ? ")
 	public void task() throws Exception {
 		ServerStatus status = Common.getServerStatus();
 		String cpuUsage = status.getCpuUsage();// CPU使用率
